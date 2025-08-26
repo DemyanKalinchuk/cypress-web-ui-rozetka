@@ -1,0 +1,25 @@
+name: Cypress Web UI CI (Rozetka)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - name: E2E run (headless)
+        run: npm run ci
+      - name: Upload artifacts (reports, screenshots, videos)
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-web-results
+          path: |
+            test-results/**
+            cypress/screenshots/**
+            cypress/videos/**
