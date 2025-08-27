@@ -1,4 +1,4 @@
-// cypress/support/baseStep.js
+
 Cypress.Commands.add('pasteText', (selector, text) => {
   cy.get(selector).focus().invoke('val', '').then(() => {
     cy.get(selector).type(text, { delay: 0, force: true });

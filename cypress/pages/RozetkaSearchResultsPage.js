@@ -1,4 +1,3 @@
-// cypress/pages/RozetkaSearchResultsPage.js
 export class RozetkaSearchResultsPage {
   assertResultsContain(text) {
     cy.get('rz-catalog-tile, .goods-tile').should('exist');

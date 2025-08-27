@@ -4,14 +4,13 @@
   "private": true,
   "description": "Cypress Web UI testing framework with BaseTest & BaseStep utilities and a Rozetka regression suite.",
   "scripts": {
-    "cypress:open": "cypress open",
+    "cypress:open": "npx cypress open",
     "start": "npm run cypress:open",
-    "test": "node ./scripts/pretest.js && cypress run",
-    "test:headed": "node ./scripts/pretest.js && cypress run --headed",
+    "test": "node ./scripts/pretest.js && npx cypress run",
+    "test:headed": "node ./scripts/pretest.js && npx cypress run --headed",
     "report": "node ./scripts/generate-report.js",
-    "ci": "node ./scripts/pretest.js && cypress run --reporter cypress-mochawesome-reporter && npm run report",
+    "ci": "node ./scripts/pretest.js && npx cypress run --reporter cypress-mochawesome-reporter && npm run report",
     "lint": "eslint .",
-    "clean": "rm -rf node_modules package-lock.json && npm install",
     "postinstall": "npx cypress install"
   },
   "devDependencies": {
