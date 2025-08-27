@@ -5,25 +5,21 @@
   "description": "Cypress Web UI testing framework with BaseTest & BaseStep utilities and a Rozetka regression suite.",
   "scripts": {
     "cypress:open": "npx cypress open",
-    "start": "npm run cypress:open",
     "test": "node ./scripts/pretest.js && npx cypress run",
-    "test:headed": "node ./scripts/pretest.js && npx cypress run --headed",
-    "report": "node ./scripts/generate-report.js",
     "ci": "node ./scripts/pretest.js && npx cypress run --reporter cypress-mochawesome-reporter && npm run report",
-    "lint": "eslint .",
     "postinstall": "npx cypress install"
   },
   "devDependencies": {
     "cypress": "^13.13.0",
     "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-wait-until": "^3.0.2",
     "dotenv": "^16.4.5",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-cypress": "^2.14.0",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.3.0",
-    "mochawesome-report-generator": "^6.2.0",
-    "cypress-wait-until": "^1.7.3"
+    "mochawesome-report-generator": "^6.2.0"
   },
   "engines": {
     "node": ">=18.0.0"

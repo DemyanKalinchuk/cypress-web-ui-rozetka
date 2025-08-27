@@ -1,12 +1,14 @@
-// cypress/pages/RozetkaHomePage.js
 export class RozetkaHomePage {
   visit() {
     cy.visit('/');
   }
   search(query) {
-    cy.get('input[name="search"]').should('be.visible').clear().type(query).type('{enter}');
+    cy.waitUntilVisible('input[name="search"]');
+    cy.pasteText('input[name="search"]', query);
+    cy.get('input[name="search"]').type('{enter}');
+    cy.waitForNetworkIdle(600);
   }
   openCart() {
-    cy.get('[href*="cart"], [data-testid*="cart"]').first().click({ force: true });
+    cy.clickIfVisible('css=[href*="cart"], [data-testid*="cart"]');
   }
 }
